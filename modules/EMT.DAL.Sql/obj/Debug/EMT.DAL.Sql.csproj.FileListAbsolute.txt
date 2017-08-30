@@ -1,0 +1,17 @@
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.DAL.Sql\bin\Debug\EMT.DAL.Sql.dll
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.DAL.Sql\bin\Debug\EMT.DAL.Sql.pdb
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.DAL.Sql\bin\Debug\Autofac.dll
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.DAL.Sql\bin\Debug\EMT.Common.dll
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.DAL.Sql\bin\Debug\EMT.DAL.dll
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.DAL.Sql\bin\Debug\EMT.Entities.dll
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.DAL.Sql\bin\Debug\CsvHelper.dll
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.DAL.Sql\bin\Debug\EMT.Common.pdb
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.DAL.Sql\bin\Debug\EMT.DAL.pdb
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.DAL.Sql\bin\Debug\EMT.Entities.pdb
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.DAL.Sql\bin\Debug\Autofac.xml
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.DAL.Sql\bin\Debug\CsvHelper.xml
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.DAL.Sql\obj\Debug\EMT.DAL.Sql.csprojResolveAssemblyReference.cache
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.DAL.Sql\obj\Debug\EMT.DAL.Sql.dll
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.DAL.Sql\obj\Debug\EMT.DAL.Sql.pdb
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.DAL.Sql\bin\Debug\Dapper.dll
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.DAL.Sql\bin\Debug\Dapper.xml

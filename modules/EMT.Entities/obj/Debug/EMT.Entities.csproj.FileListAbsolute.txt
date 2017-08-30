@@ -1,0 +1,5 @@
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Entities\bin\Debug\EMT.Entities.dll
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Entities\bin\Debug\EMT.Entities.pdb
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Entities\obj\Debug\EMT.Entities.dll
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Entities\obj\Debug\EMT.Entities.pdb
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Entities\obj\Debug\EMT.Entities.csprojResolveAssemblyReference.cache

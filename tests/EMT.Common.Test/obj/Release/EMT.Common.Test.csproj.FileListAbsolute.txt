@@ -1,0 +1,13 @@
+D:\users\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\bin\Release\EMT.Common.Test.dll
+D:\users\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\bin\Release\EMT.Common.Test.pdb
+D:\users\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\bin\Release\EMT.Common.dll
+D:\users\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\bin\Release\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\users\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\bin\Release\Autofac.dll
+D:\users\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\bin\Release\CsvHelper.dll
+D:\users\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\bin\Release\EMT.Common.pdb
+D:\users\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\bin\Release\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+D:\users\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\bin\Release\Autofac.xml
+D:\users\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\bin\Release\CsvHelper.xml
+D:\users\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\obj\Release\EMT.Common.Test.csprojResolveAssemblyReference.cache
+D:\users\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\obj\Release\EMT.Common.Test.dll
+D:\users\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\obj\Release\EMT.Common.Test.pdb

@@ -1,0 +1,45 @@
+.chart-with-zoom {
+  .area {
+      fill: steelblue;
+      clip-path: url(#clip);
+  }
+  .axis path,
+  .axis line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+  }
+  .brush .extent {
+      stroke: #fff;
+      fill-opacity: .125;
+      shape-rendering: crispEdges;
+  }
+
+  .axis {
+      stroke-width: 1;
+  }
+
+  .axis .tick line {
+      stroke: black;
+  }
+
+  .axis .tick text {
+      fill: black;
+      font-size: 0.7em;
+  }
+
+  .axis .domain {
+      fill: none;
+      stroke: black;
+  }
+
+  .group {
+      fill: none;
+      stroke: black;
+      stroke-width: 1.5;
+  }
+
+  .msg-no-data {
+      text-align: center;
+  }
+}

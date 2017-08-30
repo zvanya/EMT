@@ -1,0 +1,4 @@
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Entities\bin\Release\EMT.Entities.dll
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Entities\bin\Release\EMT.Entities.pdb
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Entities\obj\Release\EMT.Entities.dll
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Entities\obj\Release\EMT.Entities.pdb

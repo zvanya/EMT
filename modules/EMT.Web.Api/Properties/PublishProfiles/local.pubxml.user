@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\inetpub\apps\EMT.Grafana.Api</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/App_global.asax.compiled">
+      <publishTime>05/21/2017 13:21:29</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.dll">
+      <publishTime>05/21/2017 13:21:28</publishTime>
+    </File>
+    <File Include="bin/Autofac.dll">
+      <publishTime>01/17/2017 12:12:50</publishTime>
+    </File>
+    <File Include="bin/Autofac.Extras.CommonServiceLocator.dll">
+      <publishTime>06/28/2016 22:19:24</publishTime>
+    </File>
+    <File Include="bin/Autofac.Integration.WebApi.dll">
+      <publishTime>10/24/2016 12:29:56</publishTime>
+    </File>
+    <File Include="bin/Common.Logging.Core.dll">
+      <publishTime>11/14/2015 13:35:30</publishTime>
+    </File>
+    <File Include="bin/Common.Logging.Core.pdb">
+      <publishTime>11/14/2015 13:35:30</publishTime>
+    </File>
+    <File Include="bin/Common.Logging.dll">
+      <publishTime>11/14/2015 13:35:30</publishTime>
+    </File>
+    <File Include="bin/Common.Logging.NLog20.dll">
+      <publishTime>11/14/2015 13:35:36</publishTime>
+    </File>
+    <File Include="bin/Common.Logging.NLog20.pdb">
+      <publishTime>11/14/2015 13:35:36</publishTime>
+    </File>
+    <File Include="bin/Common.Logging.pdb">
+      <publishTime>11/14/2015 13:35:30</publishTime>
+    </File>
+    <File Include="bin/CsvHelper.dll">
+      <publishTime>09/09/2016 14:59:46</publishTime>
+    </File>
+    <File Include="bin/EMT.Common.dll">
+      <publishTime>05/21/2017 13:05:59</publishTime>
+    </File>
+    <File Include="bin/EMT.Common.pdb">
+      <publishTime>05/21/2017 13:05:59</publishTime>
+    </File>
+    <File Include="bin/EMT.DAL.dll">
+      <publishTime>05/21/2017 13:06:00</publishTime>
+    </File>
+    <File Include="bin/EMT.DAL.pdb">
+      <publishTime>05/21/2017 13:06:00</publishTime>
+    </File>
+    <File Include="bin/EMT.DAL.Sql.dll">
+      <publishTime>05/21/2017 13:06:00</publishTime>
+    </File>
+    <File Include="bin/EMT.DAL.Sql.pdb">
+      <publishTime>05/21/2017 13:06:00</publishTime>
+    </File>
+    <File Include="bin/EMT.Entities.dll">
+      <publishTime>05/21/2017 13:05:59</publishTime>
+    </File>
+    <File Include="bin/EMT.Entities.pdb">
+      <publishTime>05/21/2017 13:05:59</publishTime>
+    </File>
+    <File Include="bin/EMT.Utils.Profiling.dll">
+      <publishTime>05/21/2017 13:06:00</publishTime>
+    </File>
+    <File Include="bin/EMT.Utils.Profiling.pdb">
+      <publishTime>05/21/2017 13:06:00</publishTime>
+    </File>
+    <File Include="bin/EMT.Web.Api.Common.dll">
+      <publishTime>05/21/2017 13:05:59</publishTime>
+    </File>
+    <File Include="bin/EMT.Web.Api.Common.pdb">
+      <publishTime>05/21/2017 13:05:59</publishTime>
+    </File>
+    <File Include="bin/EMT.Web.Api.dll">
+      <publishTime>05/21/2017 13:21:21</publishTime>
+    </File>
+    <File Include="bin/EMT.Web.Api.pdb">
+      <publishTime>05/21/2017 13:21:21</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>06/15/2015 02:06:24</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.ServiceLocation.dll">
+      <publishTime>05/05/2014 11:25:44</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.ServiceLocation.pdb">
+      <publishTime>05/05/2014 11:25:44</publishTime>
+    </File>
+    <File Include="bin/MiniProfiler.dll">
+      <publishTime>08/26/2015 08:57:06</publishTime>
+    </File>
+    <File Include="bin/MiniProfiler.pdb">
+      <publishTime>08/26/2015 08:57:06</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>08/03/2014 20:33:56</publishTime>
+    </File>
+    <File Include="bin/NLog.dll">
+      <publishTime>07/17/2011 23:30:26</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>06/18/2015 20:19:44</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/System.Data.SQLite.dll">
+      <publishTime>12/16/2016 13:18:42</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>01/28/2015 04:02:42</publishTime>
+    </File>
+    <File Include="bin/System.Web.Cors.dll">
+      <publishTime>01/28/2015 04:01:46</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.Cors.dll">
+      <publishTime>01/28/2015 04:03:04</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>01/28/2015 04:02:54</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>01/28/2015 04:03:46</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>02/21/2017 09:07:46</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>05/21/2017 13:21:22</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>05/21/2017 13:21:21</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

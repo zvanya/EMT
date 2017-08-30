@@ -1,0 +1,8 @@
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Common\bin\Release\EMT.Common.dll
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Common\bin\Release\EMT.Common.pdb
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Common\bin\Release\Autofac.dll
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Common\bin\Release\CsvHelper.dll
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Common\bin\Release\Autofac.xml
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Common\bin\Release\CsvHelper.xml
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Common\obj\Release\EMT.Common.dll
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Common\obj\Release\EMT.Common.pdb

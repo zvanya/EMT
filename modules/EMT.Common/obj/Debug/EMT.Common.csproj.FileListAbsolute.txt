@@ -1,0 +1,9 @@
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Common\bin\Debug\EMT.Common.dll
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Common\bin\Debug\EMT.Common.pdb
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Common\bin\Debug\Autofac.dll
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Common\bin\Debug\CsvHelper.dll
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Common\bin\Debug\Autofac.xml
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Common\bin\Debug\CsvHelper.xml
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Common\obj\Debug\EMT.Common.dll
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Common\obj\Debug\EMT.Common.pdb
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Common\obj\Debug\EMT.Common.csprojResolveAssemblyReference.cache

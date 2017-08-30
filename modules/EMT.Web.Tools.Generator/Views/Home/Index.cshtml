@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Counter Values Random Generator</h2>
+
+<div id="index-page">
+    <div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Production Line</th>
+                    <th>Counter Id</th>
+                    <th>Name</th>
+                    <th>Interval, ms</th>
+                    <th>In Progress</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: counterJobs">
+                <tr data-bind="css: { success : InProgress}">
+                    <td data-bind="text: LineFullName"></td>
+                    <td data-bind="text: Id"></td>
+                    <td data-bind="text: Name"></td>
+                    <td>
+                        <input type="text" style="width:80px;" data-bind="value: TimeInterval, disable: InProgress" class="form-control" />
+                    </td>
+                    <td>
+                        <input type="checkbox" data-bind="checked: InProgress, disable: true" />
+                    </td>
+                    <td>
+                        <input type="button" value="Start" data-bind="click: $root.onJobStart, disable: InProgress" class="btn btn-default" />
+                        <input type="button" value="Stop" data-bind="click: $root.onJobStop, enable: InProgress" class="btn btn-default"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
+
+@section FootScripts {     
+    <script src="~/Scripts/index-page.js"></script>
+}

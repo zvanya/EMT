@@ -1,0 +1,86 @@
+.chart-demo-page {
+  h1 {
+    margin-left: 1em;
+    margin-bottom: 0;
+  }
+
+  .area {
+    fill: steelblue;
+    clip-path: url(#clip);
+  }
+
+  .zoom {
+    cursor: move;
+    fill: none;
+    pointer-events: all;
+  }
+
+  .chart-csv {
+    padding-left: 2em;
+    select { margin: 0 1em }
+
+    .axis line,
+    .axis path {
+      fill: none;
+      stroke: black;
+      shape-rendering: crispEdges;
+    }
+
+    .axis text {
+      text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+      cursor: move;
+      font-size: 10px;
+    }
+
+    text {
+      fill: black;
+    }
+
+    .text-labels {
+      fill: black;
+      font-family: sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+    }
+  }
+
+  .chart-with-several-axis {
+    path {
+        stroke: steelblue;
+        stroke-width: 2;
+        fill: none;
+    }
+
+    .axis path,
+    .axis line {
+        fill: none;
+        stroke: grey;
+        stroke-width: 1;
+        shape-rendering: crispEdges;
+    }
+  }
+}
+
+.chart-block { margin-bottom: 3em}
+
+.chart-with-zoom {
+  .area {
+      fill: steelblue;
+      clip-path: url(#clip);
+  }
+  .axis path,
+  .axis line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+  }
+  .brush .extent {
+      stroke: #fff;
+      fill-opacity: .125;
+      shape-rendering: crispEdges;
+  }
+}
+
+.chart-nvd3 {
+  svg { height: 350px }
+}

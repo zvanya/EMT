@@ -1,0 +1,16 @@
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Utils.Profiling\bin\Debug\EMT.Utils.Profiling.dll
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Utils.Profiling\bin\Debug\EMT.Utils.Profiling.pdb
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Utils.Profiling\bin\Debug\EMT.Common.dll
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Utils.Profiling\bin\Debug\MiniProfiler.dll
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Utils.Profiling\bin\Debug\System.Data.SQLite.dll
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Utils.Profiling\bin\Debug\Autofac.dll
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Utils.Profiling\bin\Debug\CsvHelper.dll
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Utils.Profiling\bin\Debug\EMT.Common.pdb
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Utils.Profiling\bin\Debug\MiniProfiler.pdb
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Utils.Profiling\bin\Debug\MiniProfiler.xml
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Utils.Profiling\bin\Debug\System.Data.SQLite.xml
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Utils.Profiling\bin\Debug\Autofac.xml
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Utils.Profiling\bin\Debug\CsvHelper.xml
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Utils.Profiling\obj\Debug\EMT.Utils.Profiling.csprojResolveAssemblyReference.cache
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Utils.Profiling\obj\Debug\EMT.Utils.Profiling.dll
+D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Utils.Profiling\obj\Debug\EMT.Utils.Profiling.pdb
