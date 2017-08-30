@@ -468,10 +468,10 @@ namespace EMT.DAL.Sql.Repositories
             }
 
             string UpdateLineStatusColorQuery = $"UPDATE {tbl1} SET color = '{item.fillColor}' WHERE id = {item.value}";
-            string UpdateLineStatusCommentQuery = $"UPDATE {tbl2} SET Comment = '{item.Comment}' " +
-                $"WHERE {idColumnName} = {item.value} AND " +
-                $"dtFrom = '{string.Format("{0:yyyy-MM-dd HH:mm:ss}", item.dt)}' AND " +
-                $"idLine = (SELECT id FROM Lines WHERE LTRIM(rtrim(name)) = '{target[1]}' AND id_werks = (SELECT id FROM Werks WHERE LTRIM(rtrim(Werks.name)) = '{target[0]}')) ";
+            string UpdateLineStatusCommentQuery = $@"UPDATE {tbl2} SET Comment = '{item.Comment}' " +
+                $@"WHERE {idColumnName} = {item.value} AND " +
+                $@"dtFrom = '{string.Format("{0:yyyy-MM-dd HH:mm:ss}", item.dt)}' AND " +
+                $@"idLine = (SELECT id FROM Lines WHERE LTRIM(rtrim(name)) = '{target[1]}' AND id_werks = (SELECT id FROM Werks WHERE LTRIM(rtrim(Werks.name)) = '{target[0]}')) ";
 
             string updateQuery = UpdateLineStatusColorQuery + " " + UpdateLineStatusCommentQuery;
 
