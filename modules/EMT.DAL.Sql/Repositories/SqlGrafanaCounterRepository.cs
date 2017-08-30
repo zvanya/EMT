@@ -467,7 +467,7 @@ namespace EMT.DAL.Sql.Repositories
                     break;
             }
 
-            string UpdateLineStatusColorQuery = $"UPDATE {tbl1} SET color = '{item.fillColor}' WHERE id = {item.value}";
+            string UpdateLineStatusColorQuery = $@"UPDATE {tbl1} SET color = '{item.fillColor}' WHERE id = {item.value}";
             string UpdateLineStatusCommentQuery = $@"UPDATE {tbl2} SET Comment = '{item.Comment}' " +
                 $@"WHERE {idColumnName} = {item.value} AND " +
                 $@"dtFrom = '{string.Format("{0:yyyy-MM-dd HH:mm:ss}", item.dt)}' AND " +
