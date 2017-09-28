@@ -478,7 +478,7 @@ namespace EMT.Web.Grafana.Api.Controllers
         {
             if (log.IsDebugEnabled)
             {
-                log.DebugFormat("[write/line-state/csv] valuesCsv = {0}", valuesCsv);
+                log.DebugFormat("[write/line-state/csv] valuesCsv = =*{0}*=", valuesCsv);
             }
 
             var models = _csvService.FromCSV<LineWriteModelRead>(valuesCsv, true);
