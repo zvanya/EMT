@@ -7,3 +7,13 @@ D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Common\bin\Debug\CsvHelper.xml
 D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Common\obj\Debug\EMT.Common.dll
 D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Common\obj\Debug\EMT.Common.pdb
 D:\users\vanya\work\vasya\elex\EMT\modules\EMT.Common\obj\Debug\EMT.Common.csprojResolveAssemblyReference.cache
+D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Common\bin\Debug\EMT.Common.dll
+D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Common\bin\Debug\EMT.Common.pdb
+D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Common\bin\Debug\Autofac.dll
+D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Common\bin\Debug\CsvHelper.dll
+D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Common\bin\Debug\Autofac.xml
+D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Common\bin\Debug\CsvHelper.xml
+D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Common\obj\Debug\EMT.Common.csprojResolveAssemblyReference.cache
+D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Common\obj\Debug\EMT.Common.csproj.CoreCompileInputs.cache
+D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Common\obj\Debug\EMT.Common.dll
+D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Common\obj\Debug\EMT.Common.pdb

@@ -11,3 +11,17 @@ D:\users\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\bin\Debug\CsvHelper.xml
 D:\users\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\obj\Debug\EMT.Common.Test.csprojResolveAssemblyReference.cache
 D:\users\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\obj\Debug\EMT.Common.Test.dll
 D:\users\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\obj\Debug\EMT.Common.Test.pdb
+D:\user\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\bin\Debug\EMT.Common.Test.dll
+D:\user\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\bin\Debug\EMT.Common.Test.pdb
+D:\user\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\bin\Debug\EMT.Common.dll
+D:\user\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\user\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\bin\Debug\Autofac.dll
+D:\user\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\bin\Debug\CsvHelper.dll
+D:\user\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\bin\Debug\EMT.Common.pdb
+D:\user\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\bin\Debug\Autofac.xml
+D:\user\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\bin\Debug\CsvHelper.xml
+D:\user\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\bin\Debug\ru\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+D:\user\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\obj\Debug\EMT.Common.Test.csprojResolveAssemblyReference.cache
+D:\user\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\obj\Debug\EMT.Common.Test.csproj.CoreCompileInputs.cache
+D:\user\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\obj\Debug\EMT.Common.Test.dll
+D:\user\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\obj\Debug\EMT.Common.Test.pdb

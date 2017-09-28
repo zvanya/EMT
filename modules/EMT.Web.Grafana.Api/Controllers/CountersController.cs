@@ -478,14 +478,16 @@ namespace EMT.Web.Grafana.Api.Controllers
         {
             if (log.IsDebugEnabled)
             {
-                log.DebugFormat("[PostCsv] valuesCsv = {0}", valuesCsv);
+                log.DebugFormat("[write/line-state/csv] valuesCsv = {0}", valuesCsv);
             }
 
             var models = _csvService.FromCSV<LineWriteModelRead>(valuesCsv, true);
+            
+            bool res = Int32.TryParse(models.First<LineWriteModelRead>().connectionStringName, out connectionStringNameId);
+            if (!res) return Ok();
+            //connectionStringNameId = Int32.Parse(models.First<LineWriteModelRead>().connectionStringName);
 
-            connectionStringNameId = Int32.Parse(models.First<LineWriteModelRead>().connectionStringName);
             _grafanaCounterRepository.ConnectionString = ConfigurationManager.ConnectionStrings[connectionStringNameId].ToString();
-
 
             var items = models
                 .Select(r => new LineWriteModelInsert()

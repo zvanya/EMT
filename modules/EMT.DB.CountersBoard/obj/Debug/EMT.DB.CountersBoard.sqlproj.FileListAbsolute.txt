@@ -3,3 +3,8 @@ D:\users\vanya\work\vasya\elex\EMT\modules\EMT.DB.CountersBoard\bin\Debug\EMT.DB
 D:\users\vanya\work\vasya\elex\EMT\modules\EMT.DB.CountersBoard\bin\Debug\EMT.DB.CountersBoard.pdb
 D:\users\vanya\work\vasya\elex\EMT\modules\EMT.DB.CountersBoard\obj\Debug\EMT.DB.CountersBoard.dll
 D:\users\vanya\work\vasya\elex\EMT\modules\EMT.DB.CountersBoard\obj\Debug\EMT.DB.CountersBoard.pdb
+D:\user\vanya\work\vasya\elex\EMT\modules\EMT.DB.CountersBoard\bin\Debug\EMT.DB.CountersBoard.dacpac
+D:\user\vanya\work\vasya\elex\EMT\modules\EMT.DB.CountersBoard\bin\Debug\EMT.DB.CountersBoard.dll
+D:\user\vanya\work\vasya\elex\EMT\modules\EMT.DB.CountersBoard\bin\Debug\EMT.DB.CountersBoard.pdb
+D:\user\vanya\work\vasya\elex\EMT\modules\EMT.DB.CountersBoard\obj\Debug\EMT.DB.CountersBoard.dll
+D:\user\vanya\work\vasya\elex\EMT\modules\EMT.DB.CountersBoard\obj\Debug\EMT.DB.CountersBoard.pdb
