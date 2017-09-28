@@ -482,9 +482,16 @@ namespace EMT.Web.Grafana.Api.Controllers
             }
 
             var models = _csvService.FromCSV<LineWriteModelRead>(valuesCsv, true);
-            
-            bool res = Int32.TryParse(models.First<LineWriteModelRead>().connectionStringName, out connectionStringNameId);
-            if (!res) return Ok();
+
+            try
+            {
+                bool res = Int32.TryParse(models.First<LineWriteModelRead>().connectionStringName, out connectionStringNameId);
+                if (!res) return Ok();
+            }
+            catch (Exception)
+            {
+                return Ok();
+            }
             //connectionStringNameId = Int32.Parse(models.First<LineWriteModelRead>().connectionStringName);
 
             _grafanaCounterRepository.ConnectionString = ConfigurationManager.ConnectionStrings[connectionStringNameId].ToString();
