@@ -39,7 +39,6 @@ D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.Api.Common\bin\Debug\Newtonsof
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.Api.Common\bin\Debug\System.Net.Http.Formatting.xml
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.Api.Common\bin\Debug\System.Web.Http.xml
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.Api.Common\bin\Debug\System.Web.Http.WebHost.xml
-D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.Api.Common\obj\Debug\EMT.Web.Api.Common.csprojResolveAssemblyReference.cache
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.Api.Common\obj\Debug\EMT.Web.Api.Common.csproj.CoreCompileInputs.cache
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.Api.Common\obj\Debug\EMT.Web.Api.Common.dll
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.Api.Common\obj\Debug\EMT.Web.Api.Common.pdb

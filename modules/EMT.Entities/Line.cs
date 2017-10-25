@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace EMT.Entities
 {
@@ -13,13 +14,19 @@ namespace EMT.Entities
         public string name { get; set; }
     }
 
+    [DataContract]
     public class LineWriteModelRead
     {
+        [DataMember(Name = "cnn", Order = 1)]
         public string connectionStringName { get; set; } //"Org-Test-1"
-        public string typeInfo { get; set; } //"brand", "lineState", "lineMode"
-        public long dtFrom { get; set; } //Unix time
+        [DataMember(Name = "tp", Order = 2)]
+        public string typeInfo { get; set; } //1:"brand", 2:"lineState", 3:"lineMode"
+        [DataMember(Name = "dt", Order = 4)]
+        public long dtFrom { get; set; } //"2017-02-17 08:55:48.000"
+        [DataMember(Name = "idL", Order = 5)]
         public int idLine { get; set; }
-        public int idState { get; set; } //idBrandState, idLineState, idLineMode
+        [DataMember(Name = "idS", Order = 6)]
+        public int idState { get; set; } //idBrandState, idLineState, idLineMode //зн-е приходит из PLC
     }
 
     public class LineWriteModelInsert

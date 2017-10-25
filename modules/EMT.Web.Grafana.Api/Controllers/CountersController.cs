@@ -463,12 +463,24 @@ namespace EMT.Web.Grafana.Api.Controllers
 
         [Route("write/line-state")]
         [HttpPost]
-        public IHttpActionResult WriteLineStatus([FromBody]LineWriteModelRead query)
+        public IHttpActionResult WriteLineStatus([FromBody]List<LineWriteModelRead> query)
         {
-            connectionStringName = @query.connectionStringName;
+            connectionStringName = @query[0].connectionStringName;
             _grafanaCounterRepository.ConnectionString = ConfigurationManager.ConnectionStrings[connectionStringName].ConnectionString;
 
-            _grafanaCounterRepository.WriteLineStatus(query.typeInfo,_dateTimeService.UnixTimeToDateTime(query.dtFrom),query.idLine,query.idState);
+            //_grafanaCounterRepository.WriteLineStatus(query[0].typeInfo,_dateTimeService.UnixTimeToDateTime(query[0].dtFrom),query[0].idLine,query[0].idState);
+
+            var items = query
+                .Select(r => new LineWriteModelInsert()
+                {
+                    typeInfo = r.typeInfo,
+                    dtFrom = _dateTimeService.UnixTimeToDateTime(r.dtFrom),
+                    idLine = r.idLine,
+                    idState = r.idState
+                }).ToList();
+
+            _grafanaCounterRepository.WriteLinesStatus(items);
+
             return Ok();
         }
 
