@@ -18,6 +18,7 @@ namespace EMT.Web.Grafana.Api
         {
             builder.RegisterApiControllers(System.Reflection.Assembly.GetExecutingAssembly());
 
+            //TODO: исправить на string connectionString = string.Empty;
             string connectionString = ConfigurationManager.ConnectionStrings["counters_board_db"].ConnectionString;
             builder.Register(с => new DefaultDatabaseSettings(connectionString)).As<IDatabaseSettings>();
 

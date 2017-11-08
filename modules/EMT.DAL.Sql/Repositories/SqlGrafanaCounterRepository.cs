@@ -93,7 +93,7 @@ namespace EMT.DAL.Sql.Repositories
         {
             SetConnectionString();
 
-            string SelectGrafanaLines = $"SELECT id, id_werks, LTRIM(RTRIM(name)) as name FROM Lines WHERE id_werks = (SELECT id FROM Werks WHERE LTRIM(RTRIM(name)) = '{werkName}') AND name IS NOT NULL ORDER BY name";
+            string SelectGrafanaLines = $"SELECT id, id_werks, LTRIM(RTRIM(name)) as name FROM Lines WHERE id_werks = (SELECT id FROM Werks WHERE LTRIM(RTRIM(CAST(name as varchar))) = '{werkName}') AND name IS NOT NULL ORDER BY name";
 
             using (_profilerService.Step("SqlGrafanaCounterRepository.GetLines(string werkName)"))
             {
@@ -131,7 +131,7 @@ namespace EMT.DAL.Sql.Repositories
         {
             SetConnectionString();
 
-            string SelectGrafanaCounters = $"SELECT id, LTRIM(RTRIM(name)) as name FROM Counters WHERE id_lines = (SELECT id FROM Lines WHERE LTRIM(RTRIM(name)) = '{lineName}' AND id_werks = ((SELECT id FROM Werks WHERE LTRIM(RTRIM(name)) = '{werkName}')))";
+            string SelectGrafanaCounters = $"SELECT id, LTRIM(RTRIM(name)) as name FROM Counters WHERE id_lines = (SELECT id FROM Lines WHERE LTRIM(RTRIM(CAST(name as varchar))) = '{lineName}' AND id_werks = ((SELECT id FROM Werks WHERE LTRIM(RTRIM(CAST(name as varchar))) = '{werkName}')))";
 
             using (_profilerService.Step("SqlGrafanaCounterRepository.GetCounters(string werkName, string lineName)"))
             {
@@ -189,7 +189,7 @@ namespace EMT.DAL.Sql.Repositories
         {
             SetConnectionString();
 
-            string SelectGrafanaCounterId = $"SELECT id FROM Counters WHERE id_lines = (SELECT id FROM Lines WHERE LTRIM(RTRIM(name)) = '{lineName}' AND id_werks = ((SELECT id FROM Werks WHERE LTRIM(RTRIM(name)) = '{werkName}'))) AND LTRIM(RTRIM(name)) = '{counterName}'";
+            string SelectGrafanaCounterId = $"SELECT id FROM Counters WHERE id_lines = (SELECT id FROM Lines WHERE LTRIM(RTRIM(CAST(name as varchar))) = '{lineName}' AND id_werks = ((SELECT id FROM Werks WHERE LTRIM(RTRIM(CAST(name as varchar))) = '{werkName}'))) AND LTRIM(RTRIM(CAST(name as varchar))) = '{counterName}'";
 
             using (_profilerService.Step("SqlGrafanaCounterRepository.GetCounterId(string werkName, string lineName, string counterName)"))
             {
@@ -216,7 +216,7 @@ namespace EMT.DAL.Sql.Repositories
         {
             SetConnectionString();
 
-            string SelectGrafanaLineId = $"SELECT id FROM Lines WHERE id_werks = ((SELECT id FROM Werks WHERE LTRIM(RTRIM(name)) = '{werkName}')) AND LTRIM(RTRIM(name)) = '{lineName}'";
+            string SelectGrafanaLineId = $"SELECT id FROM Lines WHERE id_werks = ((SELECT id FROM Werks WHERE LTRIM(RTRIM(CAST(name as varchar))) = '{werkName}')) AND LTRIM(RTRIM(CAST(name as varchar))) = '{lineName}'";
 
             using (_profilerService.Step("SqlGrafanaCounterRepository.GetLineId(string werkName, string lineName)"))
             {
@@ -243,7 +243,7 @@ namespace EMT.DAL.Sql.Repositories
         {
             SetConnectionString();
 
-            string SelectGrafanaWerkId = $"SELECT id FROM Werks WHERE LTRIM(RTRIM(name)) = '{werkName}'";
+            string SelectGrafanaWerkId = $"SELECT id FROM Werks WHERE LTRIM(RTRIM(CAST(name as varchar))) = '{werkName}'";
 
             using (_profilerService.Step("SqlGrafanaCounterRepository.GetWerkId(string werkName)"))
             {
@@ -471,7 +471,7 @@ namespace EMT.DAL.Sql.Repositories
             string UpdateLineStatusCommentQuery = $@"UPDATE {tbl2} SET Comment = '{item.Comment}' " +
                 $@"WHERE {idColumnName} = {item.value} AND " +
                 $@"dtFrom = '{string.Format("{0:yyyy-MM-dd HH:mm:ss}", item.dt)}' AND " +
-                $@"idLine = (SELECT id FROM Lines WHERE LTRIM(rtrim(name)) = '{target[1]}' AND id_werks = (SELECT id FROM Werks WHERE LTRIM(rtrim(Werks.name)) = '{target[0]}')) ";
+                $@"idLine = (SELECT id FROM Lines WHERE LTRIM(rtrim(CAST(name as varchar))) = '{target[1]}' AND id_werks = (SELECT id FROM Werks WHERE LTRIM(rtrim(CAST(Werks.name as varchar))) = '{target[0]}')) ";
 
             string updateQuery = UpdateLineStatusColorQuery + " " + UpdateLineStatusCommentQuery;
 
