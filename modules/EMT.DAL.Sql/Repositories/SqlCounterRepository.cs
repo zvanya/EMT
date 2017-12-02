@@ -58,10 +58,10 @@ namespace EMT.DAL.Sql.Repositories
                             {
                                 Counter counter = new Counter();
                                 counter.Id = reader.GetValue<int>("id");
-                                counter.Tag = reader.GetNullableValue<string>("id_tag");
+                                //counter.Tag = reader.GetNullableValue<string>("id_tag");
                                 counter.LineId = reader.GetNullableValue<int?>("id_lines");
                                 counter.Name = reader.GetNullableValue<string>("name");
-                                counter.Color = reader.GetNullableValue<int?>("color");
+                                counter.Color = reader.GetNullableValue<string>("color");
                                 counter.ISO = reader.GetNullableValue<string>("ISO");
                                 counter.Min = reader.GetNullableValue<double?>("minY");
                                 counter.Max = reader.GetNullableValue<double?>("maxY");

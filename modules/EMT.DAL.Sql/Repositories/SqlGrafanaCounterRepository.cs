@@ -23,7 +23,7 @@ namespace EMT.DAL.Sql.Repositories
         private const string SelectCounterIdsAfterQuery = "SELECT DISTINCT [id_counter] FROM [dbo].[Counters_value] WHERE [dt] > @After";
 
         private const string GetGrafanaCounterAnnotationsProcedure = "[dbo].[spGetCounterAnnotations]";
-        private const string SelectGrafanaCountersQuery = "SELECT id, convert(NVARCHAR, id) + ' / ' + (SELECT (SELECT RTRIM(name) FROM Werks WHERE id = id_werks) + ' / ' + RTRIM(name) from Lines WHERE id = id_lines) + ' / ' + RTRIM(name) as 'dataName' FROM Counters where id_lines IS NOT NULL";
+        private const string SelectGrafanaCountersQuery = "SELECT * FROM Counters where name IS NOT NULL AND id_lines IS NOT NULL";
         private const string SelectGrafanaWerks = "SELECT id, LTRIM(RTRIM(name)) as name FROM Werks ORDER BY name";
 
         #endregion
@@ -120,11 +120,70 @@ namespace EMT.DAL.Sql.Repositories
             }
         }
 
+        public IEnumerable<Line> GetLines()
+        {
+            SetConnectionString();
+
+            string SelectGrafanaLines = $"SELECT id, id_werks, LTRIM(RTRIM(name)) as name FROM Lines WHERE name IS NOT NULL and id_werks IS NOT NULL ORDER BY name";
+
+            using (_profilerService.Step("SqlGrafanaCounterRepository.GetLines(string werkName)"))
+            {
+                using (SqlConnection connection = new SqlConnection(_databaseSettings.ConnectionString))
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(SelectGrafanaLines, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            List<Line> lines = new List<Line>();
+                            while (reader.Read())
+                            {
+                                Line line = new Line();
+                                line.id = reader.GetValue<int>("id");
+                                line.id_werk = reader.GetValue<int>("id_werks");
+                                line.name = reader.GetValue<string>("name");
+                                lines.Add(line);
+                            }
+                            return lines;
+                        }
+                    }
+                }
+            }
+        }
+
         public IEnumerable<Counter> GetCounters(string werkName)
         {
-            List<Counter> counters = new List<Counter>();
+            SetConnectionString();
 
-            return counters;
+            string SelectGrafanaCounters = $"SELECT * FROM Counters WHERE id_lines IN (SELECT id FROM Lines WHERE id_werks IN ((SELECT id FROM Werks WHERE LTRIM(RTRIM(CAST(name as varchar))) = '{werkName}')))";
+
+            using (_profilerService.Step("SqlGrafanaCounterRepository.GetCounters(string werkName)"))
+            {
+                using (SqlConnection connection = new SqlConnection(_databaseSettings.ConnectionString))
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(SelectGrafanaCounters, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            List<Counter> counters = new List<Counter>();
+                            while (reader.Read())
+                            {
+                                Counter counter = new Counter();
+                                counter.Id = reader.GetValue<int>("id");
+                                counter.LineId = reader.GetValue<int>("id_lines");
+                                counter.Name = reader.GetValue<string>("name").Trim();
+                                counter.Color = reader.GetValue<string>("color") == null ? "" : reader.GetValue<string>("color").Trim();
+                                counter.ISO = reader.GetValue<string>("ISO") == null ? "" : reader.GetValue<string>("ISO").Trim();
+                                counter.Min = reader.GetValue<double?>("minY");
+                                counter.Max = reader.GetValue<double?>("maxY");
+                                counters.Add(counter);
+                            }
+                            return counters;
+                        }
+                    }
+                }
+            }
         }
 
         public IEnumerable<Counter> GetCounters(string werkName, string lineName)
@@ -175,7 +234,12 @@ namespace EMT.DAL.Sql.Repositories
                             {
                                 Counter counter = new Counter();
                                 counter.Id = reader.GetValue<int>("id");
-                                counter.DataName = reader.GetValue<string>("dataName");
+                                counter.LineId = reader.GetValue<int>("id_lines");
+                                counter.Name = reader.GetValue<string>("name").Trim();
+                                counter.Color = reader.GetValue<string>("color") == null ? "" : reader.GetValue<string>("color").Trim();
+                                counter.ISO = reader.GetValue<string>("ISO") == null ? "" : reader.GetValue<string>("ISO").Trim();
+                                counter.Min = reader.GetValue<double?>("minY");
+                                counter.Max = reader.GetValue<double?>("maxY");
                                 counters.Add(counter);
                             }
                             return counters;
@@ -258,6 +322,7 @@ namespace EMT.DAL.Sql.Repositories
                             while (reader.Read())
                             {
                                 werk.id = reader.GetValue<int>("id");
+                                werk.name = werkName.Trim();
                             }
                             return werk;
                         }

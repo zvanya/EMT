@@ -8,3 +8,4 @@ D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Entities\bin\Debug\EMT.Entities.pd
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Entities\obj\Debug\EMT.Entities.csproj.CoreCompileInputs.cache
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Entities\obj\Debug\EMT.Entities.dll
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Entities\obj\Debug\EMT.Entities.pdb
+d:\user\vanya\work\vasya\elex\EMT\modules\EMT.Entities\obj\Debug\EMT.Entities.csprojResolveAssemblyReference.cache

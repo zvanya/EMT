@@ -122,6 +122,31 @@ namespace EMT.Web.Grafana.Api.Models
         public string statusWrite { get; set; }
     }
 
+
+    public class OrgStructure
+    {
+        public string Id { get; set; }
+        public int? ParentId { get; set; }
+        public string Name { get; set; }
+    }
+
+    //public class Counter
+    //{
+    //    public int Id { get; set; }
+    //    public int LineId { get; set; }
+    //    public string Name { get; set; }
+    //    public string Color { get; set; }
+    //    public string Iso { get; set; }
+    //    public int? Min { get; set; }
+    //    public int? Max { get; set; }
+    //}
+
+    public class Tree
+    {
+        public List<OrgStructure> OrgStructure { get; set; }
+        public List<Entities.Counter> Counters { get; set; }
+    }
+
     //[DataContract]
     //public class LineWriteModel
     //{

@@ -320,8 +320,39 @@ namespace EMT.Web.Grafana.Api.Controllers
                         d.datapoints.Add(new List<double>() { item.Value, item.Time });
                     }
 
-                    dataPoints.Add(Filtration(d, maxDataPoints, eps_start, eps_end, eps_step_count));
-                    //dataPoints.Add(d);
+
+                    if (connectionStringName == "UnileverRU001")
+                    {
+                        if (c != 55)
+                        {
+                            dataPoints.Add(Filtration(d, maxDataPoints, eps_start, eps_end, eps_step_count));
+                            //dataPoints.Add(d);
+                        }
+                        else if (c == 55)
+                        {
+                            data.Clear();
+                            data = GetCounterValues(8, from, to);
+
+                            dataPoints.Add(
+                            new DataPointsModel()
+                            {
+                                target = d.target,
+                                datapoints = new List<List<double>>()
+                                {
+                                    new List<double>()
+                                    {
+                                        data.Last().Value - data.First().Value,
+                                        data.Last().Time
+                                    }
+                                }
+                            });
+                        }
+                    }
+                    else
+                    {
+                        dataPoints.Add(Filtration(d, maxDataPoints, eps_start, eps_end, eps_step_count));
+                        //dataPoints.Add(d);
+                    }
 
                     i++;
                 }
@@ -465,6 +496,12 @@ namespace EMT.Web.Grafana.Api.Controllers
         [HttpPost]
         public IHttpActionResult WriteLineStatus([FromBody]List<LineWriteModelRead> query)
         {
+            if (log.IsDebugEnabled)
+            {
+                log.DebugFormat("[write/line-state] valuesCsv = =*{0}*=", @query[0].connectionStringName);
+                log.DebugFormat("[write/line-state] valuesCsv = =*{0}*=", query.ToList().ToString());
+            }
+
             connectionStringName = @query[0].connectionStringName;
             _grafanaCounterRepository.ConnectionString = ConfigurationManager.ConnectionStrings[connectionStringName].ConnectionString;
 
@@ -551,7 +588,7 @@ namespace EMT.Web.Grafana.Api.Controllers
 
         [Route("values")]
         [HttpPost]
-        public void Post([FromBody]CounterValueInsert counterValues)
+        public IHttpActionResult Post([FromBody]CounterValueInsert counterValues)
         {
             if (counterValues.counterValue.Count() > 0)
             {
@@ -568,6 +605,8 @@ namespace EMT.Web.Grafana.Api.Controllers
 
                 _grafanaCounterRepository.Insert(items);
             }
+
+            return Ok();
         }
 
         [Route("values/csv")]
@@ -593,6 +632,120 @@ namespace EMT.Web.Grafana.Api.Controllers
             _grafanaCounterRepository.ConnectionString = ConfigurationManager.ConnectionStrings[connectionStringNameId].ToString();
 
             _grafanaCounterRepository.Insert(items);
+        }
+
+        [Route("tree")]
+        [HttpPost]
+        public IHttpActionResult GetTree([FromBody]User query)
+        {
+            string[] s = @query.orgName.Split('.');
+
+            connectionStringName = s[0];
+
+            _grafanaCounterRepository.ConnectionString = ConfigurationManager.ConnectionStrings[connectionStringName].ConnectionString;
+
+            var result1 = new List<Werk>();
+            var result2 = new List<Line>();
+            var result3 = new List<Entities.Counter>();
+
+            Tree tree;
+
+            if (s.Count() > 1)
+            {
+                if (s[1].Trim().Count() > 1)
+                {
+                    if (s[1] == "all")
+                    {
+                        result1 = _grafanaCounterRepository.GetWerks() as List<Werk>;
+                        result2 = _grafanaCounterRepository.GetLines() as List<Line>;
+                        result3 = _grafanaCounterRepository.GetCounters() as List<Entities.Counter>;
+                    }
+                    else
+                    {
+                        result1.Add(_grafanaCounterRepository.GetWerkId(s[1].Trim()) as Werk);
+                        result2 = _grafanaCounterRepository.GetLines(s[1].Trim()) as List<Line>;
+                        result3 = _grafanaCounterRepository.GetCounters(s[1].Trim()) as List<Entities.Counter>;
+                    }
+
+                    tree = new Tree();
+
+                    if (result1.Count > 0 && result2.Count > 0)
+                    {
+                        List<OrgStructure> orgStructure = result1
+                                    .Select(r => new OrgStructure()
+                                    {
+                                        Id = "c" + r.id,
+                                        ParentId = null,
+                                        Name = r.name.Trim()
+                                    })
+                                    .ToList();
+
+                        List<OrgStructure> resultJson2 = result2
+                                    .Select(r => new OrgStructure()
+                                    {
+                                        Id = r.id.ToString(),
+                                        ParentId = r.id_werk,
+                                        Name = r.name.Trim()
+                                    })
+                                    .ToList();
+
+                        foreach (OrgStructure item in resultJson2)
+                        {
+                            orgStructure.Add(item);
+                        }
+
+                        tree.OrgStructure = orgStructure;
+                    }
+                    else
+                    {
+                        tree.OrgStructure = new List<OrgStructure>();
+                    }
+
+                    if (result3.Count > 0)
+                    { 
+                        List<Entities.Counter> counters = result3
+                                    .Select(r => new Entities.Counter()
+                                    {
+                                        Id = r.Id,
+                                        LineId = r.LineId,
+                                        Name = r.Name.Trim(),
+                                        Color = r.Color.Trim(),
+                                        ISO = r.ISO.Trim(),
+                                        Min = r.Min,
+                                        Max = r.Max
+                                    })
+                                    .ToList();
+
+                        tree.Counters = counters;
+                    }
+                    else
+                    {
+                        tree.Counters = new List<Counter>();
+                    }
+
+                    //result1.Clear();
+                    //result2.Clear();
+                    //result3.Clear();
+                }
+                else
+                {
+                    tree = new Tree()
+                    {
+                        OrgStructure = new List<OrgStructure>(),
+                        Counters = new List<Counter>()
+                    };
+                }
+            }
+            else
+            {
+                tree = new Tree()
+                {
+                    OrgStructure = new List<OrgStructure>(),
+                    Counters = new List<Counter>()
+                };
+            }
+
+            return Json(tree);
         }
 
         [Route("annotations")]

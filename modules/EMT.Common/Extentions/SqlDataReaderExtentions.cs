@@ -19,7 +19,19 @@ namespace EMT.Common.Extentions
         public static T GetValue<T>(this SqlDataReader reader, string columnName)
         {
             int columnIndex = reader.GetOrdinal(columnName);
-            return (T)reader.GetValue(columnIndex);            
+
+            var obj = reader.GetValue(columnIndex);
+
+            if (obj == null || obj == DBNull.Value)
+            {
+                return default(T); // returns the default value for the type
+            }
+            else
+            {
+                return (T)obj;
+            }
+
+            //return (T)reader.GetValue(columnIndex);            
         }
     }
 }

@@ -12,6 +12,7 @@ namespace EMT.DAL
         string ConnectionString { get; set; }
         IEnumerable<Werk> GetWerks();
         IEnumerable<Line> GetLines(string werkName);
+        IEnumerable<Line> GetLines();
         IEnumerable<Counter> GetCounters(string werkName);
         IEnumerable<Counter> GetCounters(string werkName, string lineName);
         Counter GetCounterId(string werkName, string lineName, string counterName);

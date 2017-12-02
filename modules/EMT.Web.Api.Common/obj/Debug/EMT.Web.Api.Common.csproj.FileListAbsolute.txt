@@ -42,3 +42,4 @@ D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.Api.Common\bin\Debug\System.We
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.Api.Common\obj\Debug\EMT.Web.Api.Common.csproj.CoreCompileInputs.cache
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.Api.Common\obj\Debug\EMT.Web.Api.Common.dll
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.Api.Common\obj\Debug\EMT.Web.Api.Common.pdb
+d:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.Api.Common\obj\Debug\EMT.Web.Api.Common.csprojResolveAssemblyReference.cache

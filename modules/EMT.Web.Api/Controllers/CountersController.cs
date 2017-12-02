@@ -49,7 +49,7 @@ namespace EMT.Web.Api.Controllers
                 .Select(c => new
                 {
                     id = c.Id,
-                    tag = c.Tag?.Trim(),
+                    //tag = c.Tag?.Trim(),
                     lineId = c.LineId,
                     name = c.Name?.Trim(),
                     color = c.Color,
