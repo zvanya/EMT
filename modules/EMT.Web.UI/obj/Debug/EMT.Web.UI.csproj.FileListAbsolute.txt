@@ -193,3 +193,4 @@ D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.UI\obj\Debug\EMT.Web.UI.csproj
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.UI\obj\Debug\EMT.Web.UI.csproj.CoreCompileInputs.cache
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.UI\obj\Debug\EMT.Web.UI.dll
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.UI\obj\Debug\EMT.Web.UI.pdb
+D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.UI\obj\Debug\EMT.Web.UI.csproj.CopyComplete

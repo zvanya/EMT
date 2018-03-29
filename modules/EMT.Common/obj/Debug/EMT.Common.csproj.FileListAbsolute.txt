@@ -17,3 +17,4 @@ D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Common\obj\Debug\EMT.Common.csproj
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Common\obj\Debug\EMT.Common.csproj.CoreCompileInputs.cache
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Common\obj\Debug\EMT.Common.dll
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Common\obj\Debug\EMT.Common.pdb
+D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Common\obj\Debug\EMT.Common.csproj.CopyComplete

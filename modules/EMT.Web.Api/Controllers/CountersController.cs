@@ -48,15 +48,24 @@ namespace EMT.Web.Api.Controllers
             var countersJson = counters
                 .Select(c => new
                 {
-                    id = c.Id,
-                    //tag = c.Tag?.Trim(),
-                    lineId = c.LineId,
-                    name = c.Name?.Trim(),
-                    color = c.Color,
-                    iso = c.ISO?.Trim(),
-                    min = c.Min,
-                    max = c.Max
+                    id = c.id,
+                    lineId = c.lineId,
+                    name = c.name.Trim(),
+                    color = c.color.Trim(),
+                    iso = c.iso.Trim(),
+                    min = c.min,
+                    max = c.max
                 })
+                //{
+                //    id = c.Id,
+                //    //tag = c.Tag?.Trim(),
+                //    lineId = c.LineId,
+                //    name = c.Name?.Trim(),
+                //    color = c.Color,
+                //    iso = c.ISO?.Trim(),
+                //    min = c.Min,
+                //    max = c.Max
+                //})
                 .ToList();
 
             return Ok(countersJson);

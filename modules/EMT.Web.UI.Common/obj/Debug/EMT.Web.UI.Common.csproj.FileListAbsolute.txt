@@ -53,3 +53,4 @@ D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.UI.Common\obj\Debug\EMT.Web.UI
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.UI.Common\obj\Debug\EMT.Web.UI.Common.csproj.CoreCompileInputs.cache
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.UI.Common\obj\Debug\EMT.Web.UI.Common.dll
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.UI.Common\obj\Debug\EMT.Web.UI.Common.pdb
+D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.UI.Common\obj\Debug\EMT.Web.UI.Common.csproj.CopyComplete

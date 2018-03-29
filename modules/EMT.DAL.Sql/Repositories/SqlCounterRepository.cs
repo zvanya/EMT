@@ -57,14 +57,14 @@ namespace EMT.DAL.Sql.Repositories
                             while (reader.Read())
                             {
                                 Counter counter = new Counter();
-                                counter.Id = reader.GetValue<int>("id");
+                                counter.id = reader.GetValue<int>("id");
                                 //counter.Tag = reader.GetNullableValue<string>("id_tag");
-                                counter.LineId = reader.GetNullableValue<int?>("id_lines");
-                                counter.Name = reader.GetNullableValue<string>("name");
-                                counter.Color = reader.GetNullableValue<string>("color");
-                                counter.ISO = reader.GetNullableValue<string>("ISO");
-                                counter.Min = reader.GetNullableValue<double?>("minY");
-                                counter.Max = reader.GetNullableValue<double?>("maxY");
+                                counter.lineId = reader.GetNullableValue<int?>("id_lines");
+                                counter.name = reader.GetNullableValue<string>("name");
+                                counter.color = reader.GetNullableValue<string>("color");
+                                counter.iso = reader.GetNullableValue<string>("ISO");
+                                counter.min = reader.GetNullableValue<double?>("minY");
+                                counter.max = reader.GetNullableValue<double?>("maxY");
                                 counters.Add(counter);
                             }
                             return counters;

@@ -144,3 +144,4 @@ D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.Api.Receive\obj\Debug\EMT.Web.
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.Api.Receive\obj\Debug\EMT.Web.Api.Receive.csproj.CoreCompileInputs.cache
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.Api.Receive\obj\Debug\EMT.Web.Api.Receive.dll
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.Api.Receive\obj\Debug\EMT.Web.Api.Receive.pdb
+D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.Api.Receive\obj\Debug\EMT.Web.Api.Receive.csproj.CopyComplete

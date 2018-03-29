@@ -8,3 +8,4 @@ D:\user\vanya\work\vasya\elex\EMT\modules\EMT.DB.CountersBoard\bin\Debug\EMT.DB.
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.DB.CountersBoard\bin\Debug\EMT.DB.CountersBoard.pdb
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.DB.CountersBoard\obj\Debug\EMT.DB.CountersBoard.dll
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.DB.CountersBoard\obj\Debug\EMT.DB.CountersBoard.pdb
+D:\user\vanya\work\vasya\elex\EMT\modules\EMT.DB.CountersBoard\obj\Debug\EMT.DB.CountersBoard.sqlprojResolveAssemblyReference.cache

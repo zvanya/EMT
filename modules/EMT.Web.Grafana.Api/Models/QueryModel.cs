@@ -13,6 +13,11 @@ namespace EMT.Web.Grafana.Api.Models
         public User user { get; set; }
     }
 
+    public class treeQuerySearch
+    {
+        public User user { get; set; }
+    }
+
     public class User
     {
         public string email { get; set; }
@@ -80,6 +85,24 @@ namespace EMT.Web.Grafana.Api.Models
         public User user { get; set; }
     }
 
+    public class Targets
+    {
+        public List<string> BrandsLines { get; set; }
+        public List<string> StatusLines { get; set; }
+        public List<string> Counters { get; set; }
+    }
+
+    public class TreeQueryObjectModel
+    {
+        public int panelId { get; set; }
+        public string format { get; set; }
+        public int maxDataPoints { get; set; }
+        public int intervalMs { get; set; }
+        public Range range { get; set; }
+        public User user { get; set; }
+        public Targets targets { get; set; }
+    }
+
     [DataContract]
     public class DataPointsModel
     {
@@ -122,43 +145,31 @@ namespace EMT.Web.Grafana.Api.Models
         public string statusWrite { get; set; }
     }
 
-
-    public class OrgStructure
+    public class OrgStructureCities
     {
-        public string Id { get; set; }
-        public int? ParentId { get; set; }
-        public string Name { get; set; }
+        public int id { get; set; }
+        public int? parentId { get; set; }
+        public string name { get; set; }
     }
 
-    //public class Counter
-    //{
-    //    public int Id { get; set; }
-    //    public int LineId { get; set; }
-    //    public string Name { get; set; }
-    //    public string Color { get; set; }
-    //    public string Iso { get; set; }
-    //    public int? Min { get; set; }
-    //    public int? Max { get; set; }
-    //}
+    public class OrgStructureLines
+    {
+        public int id { get; set; }
+        public int parentId { get; set; }
+        public string name { get; set; }
+    }
 
     public class Tree
     {
-        public List<OrgStructure> OrgStructure { get; set; }
-        public List<Entities.Counter> Counters { get; set; }
+        public List<OrgStructureLines> orgStructureLines { get; set; }
+        public List<OrgStructureCities> orgStructureCities { get; set; }
+        public List<Entities.Counter> counters { get; set; }
     }
 
-    //[DataContract]
-    //public class LineWriteModel
-    //{
-    //    [DataMember(Name = "cnn", Order = 1)]
-    //    public string connectionStringName { get; set; } //"Org-Test-1"
-    //    [DataMember(Name = "tp", Order = 2)]
-    //    public string typeInfo { get; set; } //"brand", "lineState", "lineMode"
-    //    [DataMember(Name = "dt", Order = 3)]
-    //    public long dtFrom { get; set; } //Unix time. "2017-02-17 08:55:48.000"
-    //    [DataMember(Name = "idL", Order = 4)]
-    //    public int idLine { get; set; }
-    //    [DataMember(Name = "idS", Order = 5)]
-    //    public int idState { get; set; } //idBrandState, idLineState, idLineMode
-    //}
+    public class TreeQueryResponse
+    {
+        public List<DataPointTXTModel> brandsLines { get; set; }
+        public List<DataPointTXTModel> statusLines { get; set; }
+        public List<DataPointsModel> counters { get; set; }
+    }
 }

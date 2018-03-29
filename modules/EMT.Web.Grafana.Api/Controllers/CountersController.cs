@@ -207,14 +207,14 @@ namespace EMT.Web.Grafana.Api.Controllers
                             }
                             else
                             {
-                                result = new List<Entities.Counter>() { new Entities.Counter { Id = _grafanaCounterRepository.GetCounterId(s[0], s[1], s[2]).Id, Name = s[2] } };
+                                result = new List<Entities.Counter>() { new Entities.Counter { id = _grafanaCounterRepository.GetCounterId(s[0], s[1], s[2]).id, name = s[2] } };
                             }
                             var resultJson = result
                                 .Select(r => new
                                 {
-                                    Id = r.Id,
-                                    text = r.Name,
-                                    value = s[0] + "." + s[1] + "." + r.Name,
+                                    Id = r.id,
+                                    text = r.name,
+                                    value = s[0] + "." + s[1] + "." + r.name,
                                     expandable = 0
                                 })
                                 .ToList();
@@ -228,6 +228,128 @@ namespace EMT.Web.Grafana.Api.Controllers
                         }
                 }
             }
+        }
+
+        [Route("query/targets")]
+        [HttpPost]
+        public IHttpActionResult treeQuery([FromBody]TreeQueryObjectModel query)
+        {
+            connectionStringName = @query.user.orgName;
+            _grafanaCounterRepository.ConnectionString = ConfigurationManager.ConnectionStrings[connectionStringName].ConnectionString;
+
+            //Точность(в процентах) прореживания исходных данных
+            double eps_start = double.Parse(ConfigurationManager.AppSettings.GetValues("eps_start")[0]);
+            double eps_end = double.Parse(ConfigurationManager.AppSettings.GetValues("eps_end")[0]);
+            int eps_step_count = int.Parse(ConfigurationManager.AppSettings.GetValues("eps_step_count")[0]);
+
+            List<Models.DataPointsModel> counters = new List<Models.DataPointsModel>();
+            List<Models.DataPointTXTModel> statusLines = new List<DataPointTXTModel>();
+            List<Models.DataPointTXTModel> brandsLines = new List<DataPointTXTModel>();
+
+            string SQL = string.Empty;
+            long from;
+            long to;
+            int maxDataPoints;
+
+            from = _dateTimeService.DateTimeToUnixTime(DateTime.Parse(query.range.from));
+            to = _dateTimeService.DateTimeToUnixTime(DateTime.Parse(query.range.to));
+            //Максимальное количество точек на графике
+            maxDataPoints = query.maxDataPoints;
+
+            if (log.IsDebugEnabled)
+            {
+                log.DebugFormat("[TreePostQuery] from = {0}", from);
+                log.DebugFormat("[TreePostQuery] to = {0}", to);
+            }
+
+            foreach (var c in query.targets.Counters)
+            {
+                int currCounterId = Int16.Parse(c.Split('.')[2]);
+
+                var data = GetCounterValues(currCounterId, from, to);
+
+                Models.DataPointsModel cV = new DataPointsModel();
+                cV.target = c;
+                cV.datapoints = new List<List<double>>();
+
+                foreach (var item in data)
+                {
+                    cV.datapoints.Add(new List<double>() { item.Value, item.Time });
+                }
+
+                if (connectionStringName == "UnileverRU001" || connectionStringName == "Unilever")
+                {
+                    if (currCounterId != 55)
+                    {
+                        counters.Add(Filtration(cV, maxDataPoints, eps_start, eps_end, eps_step_count));
+                        //countersValues.Add(cV);
+                    }
+                    else
+                    {
+                        data.Clear();
+                        data = GetCounterValues(8, from, to);
+
+                        counters.Add(
+                        new DataPointsModel()
+                        {
+                            target = cV.target,
+                            datapoints = new List<List<double>>()
+                            {
+                                new List<double>()
+                                {
+                                    data.Last().Value - data.First().Value,
+                                    data.Last().Time
+                                }
+                            }
+                        });
+                    }
+
+                }
+                else
+                {
+                    counters.Add(Filtration(cV, maxDataPoints, eps_start, eps_end, eps_step_count));
+                    //countersValues.Add(cV);
+                }
+            }
+
+            foreach (var st in query.targets.StatusLines)
+            {
+                var data = GetLineValues(lineState, Int16.Parse(st.Split('.')[1]), from, to);
+
+                Models.DataPointTXTModel stL = new DataPointTXTModel();
+                stL.target = st;
+                stL.datapoints = new List<List<string>>();
+
+                foreach (var item in data)
+                {
+                    stL.datapoints.Add(new List<string>() { item.Value.ToString(), item.Time.ToString(), item.Name, item.Comment, item.fillColor });
+                }
+
+                statusLines.Add(stL);
+            }
+
+            foreach (var br in query.targets.BrandsLines)
+            {
+                var data = GetLineValues(brand, Int16.Parse(br.Split('.')[1]), from, to);
+
+                Models.DataPointTXTModel bL = new DataPointTXTModel();
+                bL.target = br;
+                bL.datapoints = new List<List<string>>();
+
+                foreach (var item in data)
+                {
+                    bL.datapoints.Add(new List<string>() { item.Value.ToString(), item.Time.ToString(), item.Name, item.Comment, item.fillColor });
+                }
+
+                brandsLines.Add(bL);
+            }
+
+            TreeQueryResponse tqr = new TreeQueryResponse();
+            tqr.statusLines = statusLines;
+            tqr.brandsLines = brandsLines;
+            tqr.counters = counters;
+
+            return Json(tqr);
         }
 
         [Route("query")]
@@ -288,7 +410,7 @@ namespace EMT.Web.Grafana.Api.Controllers
                             //Вычисление id counter'a по t.target = "Харьков[KHR].PET 3.Проводимость"
                             counter = _grafanaCounterRepository.GetCounterId(searchQuery[0], searchQuery[1], searchQuery[2]) as Entities.Counter;
 
-                            counterId.Add(counter.Id);
+                            counterId.Add(counter.id);
                         }
                         else
                         {
@@ -300,7 +422,7 @@ namespace EMT.Web.Grafana.Api.Controllers
 
                 if (log.IsDebugEnabled)
                 {
-                    log.DebugFormat("[PostQuery] counterId = {0}", counter.Id);
+                    log.DebugFormat("[PostQuery] counterId = {0}", counter.id);
                 }
             }
 
@@ -321,7 +443,7 @@ namespace EMT.Web.Grafana.Api.Controllers
                     }
 
 
-                    if (connectionStringName == "UnileverRU001")
+                    if (connectionStringName == "UnileverRU001" || connectionStringName == "Unilever")
                     {
                         if (c != 55)
                         {
@@ -634,11 +756,11 @@ namespace EMT.Web.Grafana.Api.Controllers
             _grafanaCounterRepository.Insert(items);
         }
 
-        [Route("tree")]
+        [Route("query/tree")]
         [HttpPost]
-        public IHttpActionResult GetTree([FromBody]User query)
+        public IHttpActionResult GetTree([FromBody]treeQuerySearch query)
         {
-            string[] s = @query.orgName.Split('.');
+            string[] s = @query.user.orgName.Split('.');
 
             connectionStringName = s[0];
 
@@ -654,7 +776,7 @@ namespace EMT.Web.Grafana.Api.Controllers
             {
                 if (s[1].Trim().Count() > 1)
                 {
-                    if (s[1] == "all")
+                    if (s[1].Trim() == "all")
                     {
                         result1 = _grafanaCounterRepository.GetWerks() as List<Werk>;
                         result2 = _grafanaCounterRepository.GetLines() as List<Line>;
@@ -671,34 +793,31 @@ namespace EMT.Web.Grafana.Api.Controllers
 
                     if (result1.Count > 0 && result2.Count > 0)
                     {
-                        List<OrgStructure> orgStructure = result1
-                                    .Select(r => new OrgStructure()
+                        List<OrgStructureCities> orgStructureCities = result1
+                                    .Select(r => new OrgStructureCities()
                                     {
-                                        Id = "c" + r.id,
-                                        ParentId = null,
-                                        Name = r.name.Trim()
+                                        id = r.id,
+                                        parentId = null,
+                                        name = r.name.Trim()
                                     })
                                     .ToList();
 
-                        List<OrgStructure> resultJson2 = result2
-                                    .Select(r => new OrgStructure()
+                        List<OrgStructureLines> orgStructureLines = result2
+                                    .Select(r => new OrgStructureLines()
                                     {
-                                        Id = r.id.ToString(),
-                                        ParentId = r.id_werk,
-                                        Name = r.name.Trim()
+                                        id = r.id,
+                                        parentId = r.id_werk,
+                                        name = r.name.Trim()
                                     })
                                     .ToList();
 
-                        foreach (OrgStructure item in resultJson2)
-                        {
-                            orgStructure.Add(item);
-                        }
-
-                        tree.OrgStructure = orgStructure;
+                        tree.orgStructureCities = orgStructureCities;
+                        tree.orgStructureLines = orgStructureLines;
                     }
                     else
                     {
-                        tree.OrgStructure = new List<OrgStructure>();
+                        tree.orgStructureCities = new List<OrgStructureCities>();
+                        tree.orgStructureLines = new List<OrgStructureLines>();
                     }
 
                     if (result3.Count > 0)
@@ -706,21 +825,21 @@ namespace EMT.Web.Grafana.Api.Controllers
                         List<Entities.Counter> counters = result3
                                     .Select(r => new Entities.Counter()
                                     {
-                                        Id = r.Id,
-                                        LineId = r.LineId,
-                                        Name = r.Name.Trim(),
-                                        Color = r.Color.Trim(),
-                                        ISO = r.ISO.Trim(),
-                                        Min = r.Min,
-                                        Max = r.Max
+                                        id = r.id,
+                                        lineId = r.lineId,
+                                        name = r.name.Trim(),
+                                        color = r.color.Trim(),
+                                        iso = r.iso.Trim(),
+                                        min = r.min,
+                                        max = r.max
                                     })
                                     .ToList();
 
-                        tree.Counters = counters;
+                        tree.counters = counters;
                     }
                     else
                     {
-                        tree.Counters = new List<Counter>();
+                        tree.counters = new List<Entities.Counter>();
                     }
 
                     //result1.Clear();
@@ -731,8 +850,9 @@ namespace EMT.Web.Grafana.Api.Controllers
                 {
                     tree = new Tree()
                     {
-                        OrgStructure = new List<OrgStructure>(),
-                        Counters = new List<Counter>()
+                        orgStructureCities = new List<OrgStructureCities>(),
+                        orgStructureLines = new List<OrgStructureLines>(),
+                        counters = new List<Entities.Counter>()
                     };
                 }
             }
@@ -740,8 +860,9 @@ namespace EMT.Web.Grafana.Api.Controllers
             {
                 tree = new Tree()
                 {
-                    OrgStructure = new List<OrgStructure>(),
-                    Counters = new List<Counter>()
+                    orgStructureCities = new List<OrgStructureCities>(),
+                    orgStructureLines = new List<OrgStructureLines>(),
+                    counters = new List<Entities.Counter>()
                 };
             }
 
@@ -860,6 +981,75 @@ namespace EMT.Web.Grafana.Api.Controllers
                         var values = _grafanaCounterRepository.GetBrandValuesDapper(
                             werkName,
                             lineName,
+                            _dateTimeService.UnixTimeToDateTime(timeFrom),
+                            _dateTimeService.UnixTimeToDateTime(timeTo));
+
+                        var models = values
+                            .Select(c => new CounterValueModel()
+                            {
+                                Time = _dateTimeService.DateTimeToUnixTime(c.dt),
+                                Value = c.value,
+                                Name = c.Name,
+                                Comment = c.Comment,
+                                fillColor = c.fillColor
+                            })
+                            .ToList();
+
+                        return models;
+                    }
+            }
+
+            return new List<CounterValueModel>();
+        }
+
+        private List<CounterValueModel> GetLineValues(string typeLineState, int lineId, long timeFrom, long timeTo)
+        {
+            switch (typeLineState)
+            {
+                case lineState:
+                    {
+                        var values = _grafanaCounterRepository.GetLineStateValuesDapper(
+                            lineId,
+                            _dateTimeService.UnixTimeToDateTime(timeFrom),
+                            _dateTimeService.UnixTimeToDateTime(timeTo));
+
+                        var models = values
+                            .Select(c => new CounterValueModel()
+                            {
+                                Time = _dateTimeService.DateTimeToUnixTime(c.dt),
+                                Value = c.value,
+                                Name = c.Name,
+                                Comment = c.Comment,
+                                fillColor = c.fillColor
+                            })
+                            .ToList();
+
+                        return models;
+                    }
+                case lineMode:
+                    {
+                        var values = _grafanaCounterRepository.GetLineModeValuesDapper(
+                            lineId,
+                            _dateTimeService.UnixTimeToDateTime(timeFrom),
+                            _dateTimeService.UnixTimeToDateTime(timeTo));
+
+                        var models = values
+                            .Select(c => new CounterValueModel()
+                            {
+                                Time = _dateTimeService.DateTimeToUnixTime(c.dt),
+                                Value = c.value,
+                                Name = c.Name,
+                                Comment = c.Comment,
+                                fillColor = c.fillColor
+                            })
+                            .ToList();
+
+                        return models;
+                    }
+                case brand:
+                    {
+                        var values = _grafanaCounterRepository.GetBrandValuesDapper(
+                            lineId,
                             _dateTimeService.UnixTimeToDateTime(timeFrom),
                             _dateTimeService.UnixTimeToDateTime(timeTo));
 

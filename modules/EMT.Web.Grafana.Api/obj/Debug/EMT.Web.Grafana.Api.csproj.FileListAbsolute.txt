@@ -270,3 +270,4 @@ D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.Grafana.Api\obj\Debug\EMT.Web.
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.Grafana.Api\obj\Debug\EMT.Web.Grafana.Api.csproj.CoreCompileInputs.cache
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.Grafana.Api\obj\Debug\EMT.Web.Grafana.Api.dll
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.Grafana.Api\obj\Debug\EMT.Web.Grafana.Api.pdb
+D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.Grafana.Api\obj\Debug\EMT.Web.Grafana.Api.csproj.CopyComplete

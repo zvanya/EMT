@@ -170,13 +170,13 @@ namespace EMT.DAL.Sql.Repositories
                             while (reader.Read())
                             {
                                 Counter counter = new Counter();
-                                counter.Id = reader.GetValue<int>("id");
-                                counter.LineId = reader.GetValue<int>("id_lines");
-                                counter.Name = reader.GetValue<string>("name").Trim();
-                                counter.Color = reader.GetValue<string>("color") == null ? "" : reader.GetValue<string>("color").Trim();
-                                counter.ISO = reader.GetValue<string>("ISO") == null ? "" : reader.GetValue<string>("ISO").Trim();
-                                counter.Min = reader.GetValue<double?>("minY");
-                                counter.Max = reader.GetValue<double?>("maxY");
+                                counter.id = reader.GetValue<int>("id");
+                                counter.lineId = reader.GetValue<int>("id_lines");
+                                counter.name = reader.GetValue<string>("name").Trim();
+                                counter.color = reader.GetValue<string>("color") == null ? "" : reader.GetValue<string>("color").Trim();
+                                counter.iso = reader.GetValue<string>("ISO") == null ? "" : reader.GetValue<string>("ISO").Trim();
+                                counter.min = reader.GetValue<double?>("minY");
+                                counter.max = reader.GetValue<double?>("maxY");
                                 counters.Add(counter);
                             }
                             return counters;
@@ -205,8 +205,8 @@ namespace EMT.DAL.Sql.Repositories
                             while (reader.Read())
                             {
                                 Counter counter = new Counter();
-                                counter.Id = reader.GetValue<int>("id");
-                                counter.Name = reader.GetValue<string>("name");
+                                counter.id = reader.GetValue<int>("id");
+                                counter.name = reader.GetValue<string>("name");
                                 counters.Add(counter);
                             }
                             return counters;
@@ -233,13 +233,13 @@ namespace EMT.DAL.Sql.Repositories
                             while (reader.Read())
                             {
                                 Counter counter = new Counter();
-                                counter.Id = reader.GetValue<int>("id");
-                                counter.LineId = reader.GetValue<int>("id_lines");
-                                counter.Name = reader.GetValue<string>("name").Trim();
-                                counter.Color = reader.GetValue<string>("color") == null ? "" : reader.GetValue<string>("color").Trim();
-                                counter.ISO = reader.GetValue<string>("ISO") == null ? "" : reader.GetValue<string>("ISO").Trim();
-                                counter.Min = reader.GetValue<double?>("minY");
-                                counter.Max = reader.GetValue<double?>("maxY");
+                                counter.id = reader.GetValue<int>("id");
+                                counter.lineId = reader.GetValue<int>("id_lines");
+                                counter.name = reader.GetValue<string>("name").Trim();
+                                counter.color = reader.GetValue<string>("color") == null ? "" : reader.GetValue<string>("color").Trim();
+                                counter.iso = reader.GetValue<string>("ISO") == null ? "" : reader.GetValue<string>("ISO").Trim();
+                                counter.min = reader.GetValue<double?>("minY");
+                                counter.max = reader.GetValue<double?>("maxY");
                                 counters.Add(counter);
                             }
                             return counters;
@@ -267,7 +267,7 @@ namespace EMT.DAL.Sql.Repositories
                             Counter counter = new Counter();
                             while (reader.Read())
                             {
-                                counter.Id = reader.GetValue<int>("id");
+                                counter.id = reader.GetValue<int>("id");
                             }
                             return counter;
                         }
@@ -431,6 +431,34 @@ namespace EMT.DAL.Sql.Repositories
             }
         }
 
+        public IEnumerable<CounterValue> GetLineStateValuesDapper(int lineId, DateTime timeFrom, DateTime timeTo)
+        {
+            #region Validation
+            if (timeFrom > timeTo)
+            {
+                throw new ArgumentException("'timeFrom' should not be greater than 'timeTo'");
+            }
+            #endregion
+
+            SetConnectionString();
+
+            string sp_getLineStatus_Name = "spGetLineStateValuesById";
+
+            using (_profilerService.Step($"SqlGrafanaCounterRepository.GetLineStateValuesDapper(lineId:{lineId},timeFrom:{timeFrom},timeTo:{timeTo})"))
+            {
+                IDbConnection db = new SqlConnection(_databaseSettings.ConnectionString);
+
+                var p = new DynamicParameters();
+                p.Add("@lineId", lineId, dbType: DbType.String);
+                p.Add("@dtFrom", timeFrom, dbType: DbType.DateTime);
+                p.Add("@dtTo", timeTo, dbType: DbType.DateTime);
+
+                List<CounterValue> values = db.Query<CounterValue>(sp_getLineStatus_Name, p, commandType: CommandType.StoredProcedure).ToList<CounterValue>();
+
+                return values;
+            }
+        }
+
         public IEnumerable<CounterValue> GetLineModeValuesDapper(string werkName, string lineName, DateTime timeFrom, DateTime timeTo)
         {
             #region Validation
@@ -468,6 +496,34 @@ namespace EMT.DAL.Sql.Repositories
             }
         }
 
+        public IEnumerable<CounterValue> GetLineModeValuesDapper(int lineId, DateTime timeFrom, DateTime timeTo)
+        {
+            #region Validation
+            if (timeFrom > timeTo)
+            {
+                throw new ArgumentException("'timeFrom' should not be greater than 'timeTo'");
+            }
+            #endregion
+
+            SetConnectionString();
+
+            string sp_getLineMode_Name = "spGetLineModeValuesById";
+
+            using (_profilerService.Step($"SqlGrafanaCounterRepository.GetLineModeValuesDapper(lineId:{lineId},timeFrom:{timeFrom},timeTo:{timeTo})"))
+            {
+                IDbConnection db = new SqlConnection(_databaseSettings.ConnectionString);
+
+                var p = new DynamicParameters();
+                p.Add("@lineId", lineId, dbType: DbType.String);
+                p.Add("@dtFrom", timeFrom, dbType: DbType.DateTime);
+                p.Add("@dtTo", timeTo, dbType: DbType.DateTime);
+
+                List<CounterValue> values = db.Query<CounterValue>(sp_getLineMode_Name, p, commandType: CommandType.StoredProcedure).ToList<CounterValue>();
+
+                return values;
+            }
+        }
+
         public IEnumerable<CounterValue> GetBrandValuesDapper(string werkName, string lineName, DateTime timeFrom, DateTime timeTo)
         {
             #region Validation
@@ -500,6 +556,34 @@ namespace EMT.DAL.Sql.Repositories
                 List<CounterValue> values = db.Query<CounterValue>(sp_getLineStatus_Name, p, commandType: CommandType.StoredProcedure).ToList<CounterValue>();
 
                 //List<CounterValue> values = db.Query<CounterValue>(SelectGrafanaLineState).ToList<CounterValue>();
+
+                return values;
+            }
+        }
+
+        public IEnumerable<CounterValue> GetBrandValuesDapper(int lineId, DateTime timeFrom, DateTime timeTo)
+        {
+            #region Validation
+            if (timeFrom > timeTo)
+            {
+                throw new ArgumentException("'timeFrom' should not be greater than 'timeTo'");
+            }
+            #endregion
+
+            SetConnectionString();
+
+            string sp_getLineBrand_Name = "spGetBrandsValuesById";
+
+            using (_profilerService.Step($"SqlGrafanaCounterRepository.GetLineBrandValuesDapper(lineId:{lineId},timeFrom:{timeFrom},timeTo:{timeTo})"))
+            {
+                IDbConnection db = new SqlConnection(_databaseSettings.ConnectionString);
+
+                var p = new DynamicParameters();
+                p.Add("@lineId", lineId, dbType: DbType.String);
+                p.Add("@dtFrom", timeFrom, dbType: DbType.DateTime);
+                p.Add("@dtTo", timeTo, dbType: DbType.DateTime);
+
+                List<CounterValue> values = db.Query<CounterValue>(sp_getLineBrand_Name, p, commandType: CommandType.StoredProcedure).ToList<CounterValue>();
 
                 return values;
             }

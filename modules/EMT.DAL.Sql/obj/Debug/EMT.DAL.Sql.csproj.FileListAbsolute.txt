@@ -33,3 +33,4 @@ D:\user\vanya\work\vasya\elex\EMT\modules\EMT.DAL.Sql\obj\Debug\EMT.DAL.Sql.cspr
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.DAL.Sql\obj\Debug\EMT.DAL.Sql.csproj.CoreCompileInputs.cache
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.DAL.Sql\obj\Debug\EMT.DAL.Sql.dll
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.DAL.Sql\obj\Debug\EMT.DAL.Sql.pdb
+D:\user\vanya\work\vasya\elex\EMT\modules\EMT.DAL.Sql\obj\Debug\EMT.DAL.Sql.csproj.CopyComplete

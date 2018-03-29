@@ -145,3 +145,4 @@ D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.Tools.Generator\obj\Debug\EMT.
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.Tools.Generator\obj\Debug\EMT.Web.Tools.Generator.csproj.CoreCompileInputs.cache
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.Tools.Generator\obj\Debug\EMT.Web.Tools.Generator.dll
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.Tools.Generator\obj\Debug\EMT.Web.Tools.Generator.pdb
+D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.Tools.Generator\obj\Debug\EMT.Web.Tools.Generator.csproj.CopyComplete

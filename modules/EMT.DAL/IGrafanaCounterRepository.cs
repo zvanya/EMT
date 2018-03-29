@@ -24,6 +24,9 @@ namespace EMT.DAL
         IEnumerable<CounterValue> GetLineStateValuesDapper(string werkName, string lineName, DateTime timeFrom, DateTime timeTo);
         IEnumerable<CounterValue> GetLineModeValuesDapper(string werkName, string lineName, DateTime timeFrom, DateTime timeTo);
         IEnumerable<CounterValue> GetBrandValuesDapper(string werkName, string lineName, DateTime timeFrom, DateTime timeTo);
+        IEnumerable<CounterValue> GetLineStateValuesDapper(int lineId, DateTime timeFrom, DateTime timeTo);
+        IEnumerable<CounterValue> GetLineModeValuesDapper(int lineId, DateTime timeFrom, DateTime timeTo);
+        IEnumerable<CounterValue> GetBrandValuesDapper(int lineId, DateTime timeFrom, DateTime timeTo);
         IEnumerable<CounterValue> GetCounterAnnotations(int counterId, DateTime timeFrom, DateTime timeTo);
         void Insert(IEnumerable<CounterValue> items);
         int UpdateLineStatus(CounterValue item, List<string> target);

@@ -32,3 +32,4 @@ D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Utils.Profiling\obj\Debug\EMT.Util
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Utils.Profiling\obj\Debug\EMT.Utils.Profiling.csproj.CoreCompileInputs.cache
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Utils.Profiling\obj\Debug\EMT.Utils.Profiling.dll
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Utils.Profiling\obj\Debug\EMT.Utils.Profiling.pdb
+D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Utils.Profiling\obj\Debug\EMT.Utils.Profiling.csproj.CopyComplete

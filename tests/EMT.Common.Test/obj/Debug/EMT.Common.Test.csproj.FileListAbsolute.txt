@@ -25,3 +25,4 @@ D:\user\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\obj\Debug\EMT.Common.Tes
 D:\user\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\obj\Debug\EMT.Common.Test.csproj.CoreCompileInputs.cache
 D:\user\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\obj\Debug\EMT.Common.Test.dll
 D:\user\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\obj\Debug\EMT.Common.Test.pdb
+D:\user\vanya\work\vasya\elex\EMT\tests\EMT.Common.Test\obj\Debug\EMT.Common.Test.csproj.CopyComplete

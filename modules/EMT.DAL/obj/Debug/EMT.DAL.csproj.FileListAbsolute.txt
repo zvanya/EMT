@@ -25,3 +25,4 @@ D:\user\vanya\work\vasya\elex\EMT\modules\EMT.DAL\obj\Debug\EMT.DAL.csprojResolv
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.DAL\obj\Debug\EMT.DAL.csproj.CoreCompileInputs.cache
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.DAL\obj\Debug\EMT.DAL.dll
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.DAL\obj\Debug\EMT.DAL.pdb
+D:\user\vanya\work\vasya\elex\EMT\modules\EMT.DAL\obj\Debug\EMT.DAL.csproj.CopyComplete

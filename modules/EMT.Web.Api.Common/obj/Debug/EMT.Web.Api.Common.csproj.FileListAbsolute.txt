@@ -43,3 +43,4 @@ D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.Api.Common\obj\Debug\EMT.Web.A
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.Api.Common\obj\Debug\EMT.Web.Api.Common.dll
 D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.Api.Common\obj\Debug\EMT.Web.Api.Common.pdb
 d:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.Api.Common\obj\Debug\EMT.Web.Api.Common.csprojResolveAssemblyReference.cache
+D:\user\vanya\work\vasya\elex\EMT\modules\EMT.Web.Api.Common\obj\Debug\EMT.Web.Api.Common.csproj.CopyComplete
